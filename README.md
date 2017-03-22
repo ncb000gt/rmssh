@@ -1,4 +1,4 @@
-rmssh
+ssh-stream
 =
 
 Allows you to fire off multiple ssh commands and will process the output of those commands.
@@ -7,7 +7,7 @@ Allows you to filter the contents of the commands.
 Example
 ===
 
-    node rmssh.js --filter=cron \
+    ./ssh-stream --filter=cron \
     "me@server tail -f /server/cron/log/file"
 
 Commands
