@@ -1,0 +1,11 @@
+{
+  "name": "rmtail",
+  "description": "remote multi tail",
+  "version": "0.0.1",
+  "dependencies": {
+    "yargs": "*",
+    "ssh-exec": "*",
+    "colors": "*",
+    "read": "*"
+  }
+}
