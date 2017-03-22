@@ -13,6 +13,6 @@ Example
 Commands
 ===
 
-* --filter - String to filter by.
+* --filter - Regexp pattern to filter by.
 * --user - Username for ssh connection (will prompt if not supplied)
 * --password - Password for ssh connection (will prompt if not supplied, silent)
