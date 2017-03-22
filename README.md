@@ -8,7 +8,9 @@ Example
 ===
 
     ./ssh-stream --filter=cron \
-    "me@server tail -f /server/cron/log/file"
+    "me@server1 tail -f /server1/cron/log/file"
+    "me@server2 tail -f /server2/cron/log/file"
+    "me@server3 tail -f /server3/cron/log/file"
 
 Commands
 ===
