@@ -18,7 +18,7 @@ function genStream(server) {
 		const snl = bufStr.split('\n');
 
 		snl.forEach(line => {
-			if ((filter && line.indexOf(filter) >= 0) || !filter) {
+			if ((filter && (new RegExp(filter, 'i')).test(line)) || !filter) {
 				console.log(colors.green(server), ' : ', line);
 			}
 		});
