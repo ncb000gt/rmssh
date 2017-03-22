@@ -1,6 +1,6 @@
 {
-  "name": "rmtail",
-  "description": "remote multi tail",
+  "name": "rmssh",
+  "description": "remote multi ssh",
   "version": "0.0.1",
   "dependencies": {
     "yargs": "*",
