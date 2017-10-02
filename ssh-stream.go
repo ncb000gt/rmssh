@@ -50,7 +50,7 @@ func main() {
 
 		err := c.Stream(*filterPtr)
 		if err != nil {
-			panic(err)
+			panic("Problem creating stream: " + err.Error())
 		}
 
 	}
@@ -71,16 +71,21 @@ func parseConfig(configLine string) config {
 
 func (ssh_config *config) connect() (*ssh.Session, error) {
 	sshClientConfig := &ssh.ClientConfig{
-		User: ssh_config.User,
-		Auth: []ssh.AuthMethod{ssh.Password(ssh_config.Password)}, // just passwords for now...
+		User:            ssh_config.User,
+		Auth:            []ssh.AuthMethod{ssh.Password(ssh_config.Password)}, // just passwords for now...
+		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
 
 	client, err := ssh.Dial("tcp", ssh_config.Host+":"+strconv.FormatInt(ssh_config.Port, 10), sshClientConfig)
 
+	if err != nil {
+		panic("Failed to dial: " + ssh_config.Host + " - " + err.Error())
+	}
+
 	session, err := client.NewSession()
 	if err != nil {
 		client.Close()
-		return nil, err
+		panic("Failed to create session: " + err.Error())
 	}
 
 	return session, nil
